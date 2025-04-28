@@ -36,13 +36,19 @@ export async function GET(request: Request) {
 
         return Response.json({
             success: true,
-            messages:user[0].messages 
+            messages: user[0].messages
         },
             { status: 200 }
         )
 
     } catch (error) {
-
+        console.error(error);
+        return Response.json({
+            success: false,
+            message: "Some error occured while getting messages"
+        },
+            { status: 500 }
+        )
     }
 
 }
